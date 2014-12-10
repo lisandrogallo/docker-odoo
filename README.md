@@ -13,26 +13,26 @@ Create a local directory to store configuration and data for the PostgreSQL cont
 Run PostgreSQL container on a separate terminal:
 
     sudo docker run \
-      --rm \
-      --tty \
-      --interactive \
-      --name postgres \
-      --volume /local_directory/data:/var/lib/postgresql/data \
-      --volume /local_directory/log:/var/log/postgresql postgres:9.3
+        --rm \
+        --tty \
+        --interactive \
+        --name postgres \
+        --volume /local_directory/data:/var/lib/postgresql/data \
+        --volume /local_directory/log:/var/log/postgresql postgres:9.3
 
 Link to PostgreSQL container and create 'odoo' user. A prompt will ask for a password to set:
 
     sudo docker run \
-      --interactive \
-      --tty \
-      --link postgres:postgres \
-      --rm postgres \
-      bash -c 'exec createuser \
-      -U postgres \
-      -h "$POSTGRES_PORT_5432_TCP_ADDR" \
-      -p "$POSTGRES_PORT_5432_TCP_PORT"\
-      --pwprompt odoo \
-      --createdb'
+        --interactive \
+        --tty \
+        --link postgres:postgres \
+        --rm postgres \
+        bash -c 'exec createuser \
+        -U postgres \
+        -h "$POSTGRES_PORT_5432_TCP_ADDR" \
+        -p "$POSTGRES_PORT_5432_TCP_PORT"\
+        --pwprompt odoo \
+        --createdb'
 
 Build the Odoo image using the Dockerfile included on this repo:
 
