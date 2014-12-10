@@ -46,7 +46,7 @@ Launch Odoo server connected to Postgres instance:
 
 Then you can access Odoo at the following URL: http://localhost:8069
 
-These containers will be deleted when they stop running. If you need to run them as daemons replace the --interactive and --tty options with --detach.
+These containers will be deleted when they stop running. If you need to run them as daemons replace the **--interactive** and **--tty** options with **--detach**.
 
 ## Troubleshooting
 
@@ -54,6 +54,6 @@ If you get the following error:
 
     OperationalError: FATAL:  no pg_hba.conf entry for host "172.17.0.7", user "odoo", database "postgres", SSL off
 
-You can override it by adding this line to this PostgreSQL configuration file:
+You can override it by adding this line to the *pg_hba.conf* file:
 
     echo "host  all  all  172.17.0.0/24  trust" >> /local_directory/data/pg_hba.conf
