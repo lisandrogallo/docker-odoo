@@ -4,8 +4,7 @@ ENV REFRESHED_AT 2014-12-04
 RUN apt-get clean
 RUN apt-get update
 RUN apt-get upgrade -y
-RUN apt-get install -y vim ccze iptraf htop cbm ncdu elinks-lite molly-guard mc python-pip python-virtualenv facter git ack-grep
-RUN apt-get install -y python-dev libldap2-dev libsasl2-dev libpq-dev libxml2-dev libxslt1-dev libfreetype6-dev libjpeg8-dev
+RUN apt-get install -y python-pip git python-dev libldap2-dev libsasl2-dev libpq-dev libxml2-dev libxslt1-dev libfreetype6-dev libjpeg8-dev
 RUN mkdir --parents /opt/odoo
 RUN useradd --create-home --password odoo odoo
 RUN chown --recursive odoo:odoo /opt/odoo/
