@@ -41,9 +41,15 @@ Build the Odoo image using the Dockerfile included on this repo:
 
 Launch Odoo server connected to Postgres instance:
 
-    sudo docker run --rm -ti --name odoo --link postgres:odoo_database \
-      -p 8069:8069 odoo_server:8.0
-
+    sudo docker run \
+        --interactive \
+        --tty \
+        --name odoo \
+        --link postgres:odoo_database \
+        --rm \
+        --publish=8069:8069 \
+        odoo_server:8.0
+    
 Then you can access Odoo at the following URL: http://localhost:8069
 
 These containers will be deleted when they stop running. If you need to run them as daemons replace the **--interactive** and **--tty** options with **--detach**.
