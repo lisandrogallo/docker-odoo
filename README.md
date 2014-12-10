@@ -42,11 +42,11 @@ Build the Odoo image using the Dockerfile included on this repo:
 Launch Odoo server connected to Postgres instance:
 
     sudo docker run \
+        --rm \
         --interactive \
         --tty \
         --name odoo \
         --link postgres:odoo_database \
-        --rm \
         --publish=8069:8069 \
         odoo_server:8.0
     
@@ -59,11 +59,11 @@ These containers will be deleted when they stop running. If you need to run them
 For using this docker image for development, you have to execute:
 
     sudo docker run \
+        --rm \
         --interactive \
         --tty \
         --name odoo \
         --link postgres:odoo_database \
-        --rm \
         --volume /local_module:/opt/odoo/sources/addons \
         --publish=8069:8069 \
         odoo_server:8.0
@@ -71,11 +71,11 @@ For using this docker image for development, you have to execute:
 To update all modules on a specific database, yo have to execute:
 
     sudo docker run \
+        --rm \
         --interactive \
         --tty \
         --name odoo \
         --link postgres:odoo_database \
-        --rm \
         --volume /local_module:/opt/odoo/sources/addons \
         --publish=8069:8069 \
         odoo_server:8.0
@@ -86,11 +86,11 @@ To update all modules on a specific database, yo have to execute:
 For using a local Odoo configuration file, you have to execute:
 
     sudo docker run \
+        --rm \
         --interactive \
         --tty \
         --name odoo \
         --link postgres:odoo_database \
-        --rm \
         --volume /local_module:/opt/odoo/sources/addons \
         --volume /local_path/odoo.conf:/opt/odoo/odoo.conf \
         --publish=8069:8069 \
