@@ -95,9 +95,6 @@ For using a local Odoo configuration file, you have to execute:
         --volume /local_path/odoo.conf:/opt/odoo/odoo.conf \
         --publish=8069:8069 \
         odoo_server:8.0
-        sudo -H -u odoo /opt/odoo/server/odoo.py \
-        -c /opt/odoo/server/odoo.conf \
-        --update=all -d database_name
 
 ## Troubleshooting
 
