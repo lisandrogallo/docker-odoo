@@ -54,6 +54,55 @@ Then you can access Odoo at the following URL: http://localhost:8069
 
 These containers will be deleted when they stop running. If you need to run them as daemons replace the **--interactive** and **--tty** options with **--detach**.
 
+## Development
+
+For using this docker image for development, you have to execute:
+
+    sudo docker run --rm -ti --name odoo --link postgres:odoo-db \
+      -v /your/local/repo:/opt/odoo/sources/addons \
+      -p 8069:8069 adhoc/odoo:8.0
+
+    sudo docker run \
+    --interactive \
+    --tty \
+    --name odoo \
+    --link postgres:odoo_database \
+    --rm \
+    --volume /local_module:/opt/odoo/sources/addons \
+    --publish=8069:8069 \
+    odoo_server:8.0
+
+To update all modules on a specific database, yo have to execute:
+
+    sudo docker run \
+    --interactive \
+    --tty \
+    --name odoo \
+    --link postgres:odoo_database \
+    --rm \
+    --volume /local_module:/opt/odoo/sources/addons \
+    --publish=8069:8069 \
+    odoo_server:8.0
+    sudo -H -u odoo /opt/odoo/server/odoo.py \
+    -c /opt/odoo/server/odoo.conf \
+    --update=all -d database_name
+
+For using a local Odoo configuration file, you have to execute:
+
+    sudo docker run \
+    --interactive \
+    --tty \
+    --name odoo \
+    --link postgres:odoo_database \
+    --rm \
+    --volume /local_module:/opt/odoo/sources/addons \
+    --volume /local_path/odoo.conf:/opt/odoo/odoo.conf \
+    --publish=8069:8069 \
+    odoo_server:8.0
+    sudo -H -u odoo /opt/odoo/server/odoo.py \
+    -c /opt/odoo/server/odoo.conf \
+    --update=all -d database_name
+
 ## Troubleshooting
 
 If you get the following error:
