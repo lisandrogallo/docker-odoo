@@ -58,10 +58,6 @@ These containers will be deleted when they stop running. If you need to run them
 
 For using this docker image for development, you have to execute:
 
-    sudo docker run --rm -ti --name odoo --link postgres:odoo-db \
-      -v /your/local/repo:/opt/odoo/sources/addons \
-      -p 8069:8069 adhoc/odoo:8.0
-
     sudo docker run \
     --interactive \
     --tty \
