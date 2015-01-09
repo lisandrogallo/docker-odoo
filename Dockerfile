@@ -14,5 +14,6 @@ WORKDIR /opt/odoo/server/
 RUN git checkout 8.0
 USER root
 RUN python setup.py install
+RUN pip install pyinotify 
 RUN sudo -H -u odoo /opt/odoo/server/odoo.py --stop-after-init --save --config=/opt/odoo/odoo.conf --db_host=odoo_database --db_user=odoo --db_password=odoo
 CMD ["sudo", "-H", "-u", "odoo", "/opt/odoo/server/odoo.py", "-c", "/opt/odoo/odoo.conf"]
