@@ -1,6 +1,6 @@
 FROM ubuntu:14.04
 MAINTAINER Liso Gallo <liso@riseup.net>
-ENV REFRESHED_AT 2014-12-04
+ENV REFRESHED_AT 2014-02-04
 RUN apt-get clean
 RUN apt-get update
 RUN apt-get upgrade -y
