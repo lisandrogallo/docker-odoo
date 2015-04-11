@@ -1,7 +1,7 @@
 docker-odoo
 ===========
 
-Dockerfile and configuration stepts to launch Odoo version 8.0 container linked to a PostgreSQL container.
+Dockerfile and configuration steps to launch Odoo version 8.0 container linked to a PostgreSQL container.
 
 ## Instalation
 
